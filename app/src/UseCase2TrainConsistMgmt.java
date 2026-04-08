@@ -1,43 +1,31 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Train_Consist_Management {
 
     public static void main(String[] args) {
 
-        System.out.println("==================================================");
-        System.out.println("   === UC2 - Add Passenger Bogies to Train ===");
-        System.out.println("==================================================\n");
+        System.out.println("=======================================");
+        System.out.println(" UC3 - Track Unique Bogie IDs ");
+        System.out.println("=======================================\n");
 
-        // Create an ArrayList to hold passenger bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // Create a Set to store unique bogie IDs
+        Set<String> bogies = new HashSet<>();
 
-        // --- CREATE (Add bogies) ---
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // ---- ADD IDs (Including Duplicates) ----
+        bogies.add("BG101");
+        bogies.add("BG102");
+        bogies.add("BG103");
+        bogies.add("BG104");
 
-        // Display bogies after addition
-        System.out.println("Passenger bogies after addition:");
-        System.out.println(passengerBogies);
+        // Duplicate entries (will be ignored)
+        bogies.add("BG101"); // Duplicate
+        bogies.add("BG102"); // Duplicate
 
-        // --- DELETE (Remove a bogie) ---
-        passengerBogies.remove("AC Chair");
-
-        System.out.println("\nAfter removing 'AC Chair':");
-        System.out.println(passengerBogies);
-
-        // --- READ (Check existence) ---
-        if (passengerBogies.contains("Sleeper")) {
-            System.out.println("\n'Sleeper' bogie is present in the train.");
-        } else {
-            System.out.println("\n'Sleeper' bogie is NOT present in the train.");
+        // ---- DISPLAY UNIQUE BOGIE IDs ----
+        System.out.println("Unique Bogie IDs in Train:");
+        for (String bogie : bogies) {
+            System.out.println(bogie);
         }
-
-        // Final state of the list
-        System.out.println("\nFinal passenger bogie list:");
-        System.out.println(passengerBogies);
-
-        // Program continues...
     }
 }
